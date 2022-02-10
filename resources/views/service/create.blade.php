@@ -4,37 +4,31 @@
 <div class="pb-20 my-5">
     <div class="text-center">
         <h1 class="text-5xl">
-            Create Owner
+            Create Service
         </h1>
     </div>
 <div>
 
         <div class="flex justify-center pt-3">
-            <form action="/owner" method="POST" enctype="multipart/form-data">
+            <form action="/service" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="block">
-                    <label for="first_name" class="text-lg">First Name</label>
+                    <label for="service_name" class="text-lg">Service Name</label>
                     <input type="text"
                     class="block shadow-5xl p-2 my-5 w-full"
-                    name="first_name"
-                    placeholder="First Name">
+                    name="service_name"
+                    placeholder="Service Name">
 
-                    <label for="last_name" class="text-lg">Last Name</label>
+                    <label for="cost" class="text-lg">Cost</label>
                     <input type="text"
                     class="block shadow-5xl p-2 my-5 w-full"
-                    name="last_name"
-                    placeholder="Last Name">
+                    name="cost"
+                    placeholder="Cost">
 
-                    <label for="phone_number" class="text-lg"r">Phone Number</label>
-                    <input type="text"
-                    class="block shadow-5xl p-2 my-5 w-full"
-                    name="phone_number"
-                    placeholder="Phone Number">
-
-                    <label for="owner_pic"" class="text-lg">Owner Pic</label>
+                    <label for="haircut_pic"" class="text-lg">Haircut Pic</label>
                     <input type="file"
                     class="block shadow-5xl p-2 w-full"
-                    name="owner_pic">
+                    name="haircut_pic">
 
                     <button type="submit" class="bg-gray-800 text-white block p-2 mt-5 w-full font-bold">
                         Submit

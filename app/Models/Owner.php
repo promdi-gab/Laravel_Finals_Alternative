@@ -12,6 +12,9 @@ class Owner extends Model
     protected $table = 'owners';
 
     protected $primaryKey = 'owner_id';
+    
+    public function Pet(){
+        return $this->hasMany(Pet::class);
+    }
 
-    //protected $fillable = ['first_name','last_name','phone_number','owner_pic'];
 }

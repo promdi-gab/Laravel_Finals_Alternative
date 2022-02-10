@@ -11,19 +11,19 @@
     </div>
     <nav>
         <ul class="tracking-widest text-2xl">
-            <button> <a href="index.php">
+            <button> <a href="{{ URL('/') }}">
                     <h5>Home</h5>
                 </a></button>
-            <button> <a href="pets.php">
+            <button> <a href="{{ URL('pet') }}">
                     <h5>Pets</h5>
                 </a></button>
-            <button><a href="customer.php">
-                    <h5>Customers</h5>
+            <button><a href="{{ URL('owner') }}">
+                    <h5>Owners</h5>
                 </a></button>
             <button><a href="employee.php">
                     <h5>Employee</h5>
                 </a></button>
-            <button><a href="service.php">
+            <button><a href="{{ URL('service') }}">
                     <h5>Service</h5>
                 </a></button>
             <button><a href="consultationz.php">
@@ -31,11 +31,11 @@
                 </a></button>
         </ul>
     </nav>
-    <div class="text-2xl">
+    <button class="text-2xl">
         <h1>Log out</h1>
-    </div>
+    </button>
 </header>
-<body style="background: url(https://wallpapercave.com/wp/B1sODrM.jpg);  background-size: 115% ;">
+<body style="background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size:cover;">
     @yield('contents')
 </body>
 </html>

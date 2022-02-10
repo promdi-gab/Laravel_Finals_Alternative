@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ownerController;
+use App\Http\Controllers\petController;
+use App\Http\Controllers\serviceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,10 @@ use App\Http\Controllers\ownerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function(){
+    return view('home');
+});
 
 Route::resource('/owner', ownerController::class);
+Route::resource('/pet', petController::class);
+Route::resource('/service', serviceController::class);
