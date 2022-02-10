@@ -37,6 +37,13 @@ class ownerController extends Controller
      */
     public function store(Request $req)
     {
+        $req->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone_number' => 'required',
+            'owner_pic' => 'required|mimes:jpg,png,jpeg,gif|max:5048'
+        ]);
+
         $Owner = new Owner;
         $Owner->first_name = $req->input('first_name');
         $Owner->last_name = $req->input('last_name');
