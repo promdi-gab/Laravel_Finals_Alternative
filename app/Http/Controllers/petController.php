@@ -34,3 +34,20 @@ class petController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $req)
+    {
+        $req->validate([
+            'pet_name' => 'required|unique:pets',
+            'age' => 'required|integer|min:1|max:100',
+            'sex' => 'required',
+            'breed' => 'required',
+            'owner_id' => 'required',
+            'pet_pic' => 'required|mimes:jpg,png,jpeg,gif|max:5048'
+        ]);
+
+        $Pet = new Pet;
