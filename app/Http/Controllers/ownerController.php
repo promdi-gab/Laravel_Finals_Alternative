@@ -104,8 +104,8 @@ class ownerController extends Controller
                 File::delete($destination);
             }
             $file = $req->file('owner_pic');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
             $file->move('uploads/images/', $filename);
             $Owner->owner_pic = $filename;
         }
