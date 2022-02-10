@@ -51,3 +51,21 @@ class petController extends Controller
         ]);
 
         $Pet = new Pet;
+        $Pet->pet_name = $req->input('pet_name');
+        $Pet->age = $req->input('age');
+        $Pet->sex = $req->input('sex');
+        $Pet->breed = $req->input('breed');
+        $Pet->owner_id  = $req->input('owner_id');
+        if($req->hasfile('pet_pic'))
+        {
+            $file = $req->file('pet_pic');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/images2/', $filename);
+            $Pet->pet_pic = $filename;
+        }
+        $Pet->save();
+        return redirect('/pet');
+    }
+
+    /**
