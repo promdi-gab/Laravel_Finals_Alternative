@@ -95,3 +95,53 @@ class petController extends Controller
         ]);
     }
 
+/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @ret    urn \Illuminate\Http\Response
+     */
+    public function update(Request $req, $pet_id)
+    {
+        $Pet = Pet::find($pet_id);
+        $Pet->pet_name = $req->input('pet_name');
+        $Pet->age = $req->input('age');
+        $Pet->sex = $req->input('sex');
+        $Pet->breed = $req->input('breed');
+        $Pet->owner_id = $req->input('owner_id');
+        if($req->hasfile('pet_pic'))
+        {
+            $destination = 'uploads/images2/'.$Pet->owner_pic;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $req->file('pet_pic');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/images2/', $filename);
+            $Pet->pet_pic = $filename;
+        }
+        $Pet->update();
+        return redirect('/pet');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($pet_id)
+    {
+        $Pet = Pet::find($pet_id);
+        $destination = 'uploads/images2/'.$Pet->owner_pic;
+        if(File::exists($destination))
+        {
+            File::delete($destination);
+        }
+        $Pet->delete();
+        return redirect('/pet');
+    }
+}
