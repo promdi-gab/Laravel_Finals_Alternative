@@ -51,8 +51,8 @@ class ownerController extends Controller
         if($req->hasfile('owner_pic'))
         {
             $file = $req->file('owner_pic');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
             $file->move('uploads/images/', $filename);
             $Owner->owner_pic = $filename;
         }
