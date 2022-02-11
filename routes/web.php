@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ownerController;
 use App\Http\Controllers\petController;
 use App\Http\Controllers\serviceController;
+use App\Http\Controllers\employeeController;
+use App\Http\Controllers\consultationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +23,8 @@ Route::get('/', function(){
 Route::resource('/owner', ownerController::class);
 Route::resource('/pet', petController::class);
 Route::resource('/service', serviceController::class);
+Route::resource('/consultation', consultationController::class);
+
+Route::get('/login', [employeeController::class,'login']);
+Route::post('/check', [employeeController::class,'check'])->name('check');
+Route::resource('/employee', employeeController::class);

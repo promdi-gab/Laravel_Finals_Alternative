@@ -20,20 +20,20 @@
             <button><a href="{{ URL('owner') }}">
                     <h5>Owners</h5>
                 </a></button>
-            <button><a href="employee.php">
+            <button><a href={{ URL('employee') }}>
                     <h5>Employee</h5>
                 </a></button>
             <button><a href="{{ URL('service') }}">
                     <h5>Service</h5>
                 </a></button>
-            <button><a href="consultationz.php">
+            <button><a href="{{ URL('consultation') }}">
                     <h5>Consultation</h5>
                 </a></button>
         </ul>
     </nav>
-    <button class="text-2xl">
-        <h1>Log out</h1>
-    </button>
+    <button class="text-2xl"><a href="{{ URL('/login') }}">
+        <h5>Log Out</h5>
+    </a></button>
 </header>
 <body style="background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size:cover;">
     @yield('contents')
