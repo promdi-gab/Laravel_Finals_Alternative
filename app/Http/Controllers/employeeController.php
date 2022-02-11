@@ -83,7 +83,7 @@ class employeeController extends Controller
             $Employee->employee_pic = $filename;
         }
         $Employee->save();
-        return redirect('/employee');
+        return redirect('/login');
     }
 
     /**
