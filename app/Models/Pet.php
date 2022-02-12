@@ -13,8 +13,8 @@ class Pet extends Model
 
     protected $primaryKey = 'pet_id';
 
-    public function Owner(){
-        return $this->belongsTo(Owner::class);
+    public function owner(){
+        return $this->belongsTo('\App\Models\Owner','owner_id');
     }
 
     public function Consultation(){

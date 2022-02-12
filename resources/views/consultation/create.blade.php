@@ -39,7 +39,7 @@
                       <option>Arthritis</option>
                       <option>Ear_Infections</option>
                       <option>Kennel_Cough</option>
-                      <option>Diarrhoea</option>
+                      <option>Diarrhea</option>
                       <option>Fleas_and_ticks</option>
                       <option>Heartworm</option>
                       <option>Broken_Bones</option>

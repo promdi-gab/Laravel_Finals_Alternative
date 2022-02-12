@@ -6,10 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\Consultation;
 use App\Models\Pet;
 use App\Models\Employee;
-use Illuminate\Support\Facades\File;
 
 class consultationController extends Controller
 {
+    public function search()
+    {
+
+        $consultations = Consultation::with('employee')->get();
+        $consultations = Consultation::with('pet')->get();
+        $search = $_GET['search'];
+        $Pet = Pet::where('pet_name', 'LIKE', '%'.$search.'%')->get();
+        return view('consultation.search',[
+            'consultations' => $consultations,
+            'pets' => $Pet
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +29,8 @@ class consultationController extends Controller
      */
     public function index()
     {
-        $consultations = Consultation::all();
+        $consultations = Consultation::with('employee')->get();
+        $consultations = Consultation::with('pet')->get();
         return view('consultation.index',[
             'consultations' => $consultations
         ]);

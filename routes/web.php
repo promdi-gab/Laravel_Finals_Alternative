@@ -21,6 +21,7 @@ Route::resource('/owner', ownerController::class)->middleware('isLoggedIn');
 Route::resource('/pet', petController::class)->middleware('isLoggedIn');
 Route::resource('/service', serviceController::class)->middleware('isLoggedIn');
 Route::resource('/consultation', consultationController::class)->middleware('isLoggedIn');
+Route::get('/search', [consultationController::class,'search'])->middleware('alreadyLoggedIn');
 
 Route::get('/login', [employeeController::class,'login'])->middleware('alreadyLoggedIn');
 Route::post('/check', [employeeController::class,'check'])->name('check');

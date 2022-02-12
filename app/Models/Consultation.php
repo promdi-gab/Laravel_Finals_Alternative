@@ -13,11 +13,11 @@ class Consultation extends Model
 
     protected $primaryKey = 'consultation_id';
 
-    public function Pet(){
-        return $this->belongsTo(Pet::class);
+    public function pet(){
+        return $this->belongsTo('\App\Models\Pet','pet_id');
     }
 
-    public function Employee(){
-        return $this->belongsTo(Employee::class);
+    public function employee(){
+        return $this->belongsTo('\App\Models\Employee','employee_id');
     }
 }

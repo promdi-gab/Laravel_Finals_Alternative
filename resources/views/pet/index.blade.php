@@ -43,7 +43,7 @@
             <img src="{{ asset('uploads/images2/'.$pet->pet_pic)}}" alt="I am A Pic" width="75" height="75">
           </td>
           <td class=" text-center text-3xl">
-                {{ $pet->owner_id }}
+                {{ $pet->owner->first_name }}
           </td>
           <td class=" text-center">
             <a href="pet/{{ $pet->pet_id }}/edit" class="text-center text-3xl bg-green-600 p-2">

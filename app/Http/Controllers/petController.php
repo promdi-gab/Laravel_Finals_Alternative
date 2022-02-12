@@ -16,7 +16,7 @@ class petController extends Controller
      */
     public function index()
     {
-        $pets = Pet::all();
+        $pets = Pet::with('owner')->get();
         return view('pet.index',[
             'pets' => $pets
         ]);
