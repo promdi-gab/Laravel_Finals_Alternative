@@ -45,7 +45,7 @@
                     name="employee_pic">
 
                     <button type="submit" class="bg-gray-800 text-white block p-2 mt-5 w-full font-bold">
-                        Submit
+                        Submit Account
                     </button>
                 </div>
             </form>

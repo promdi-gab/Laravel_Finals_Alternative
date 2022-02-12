@@ -90,6 +90,7 @@ class serviceController extends Controller
      */
     public function update(Request $req, $service_id)
     {
+
         $Service = Service::find($service_id);
         $Service->service_name = $req->input('service_name');
         $Service->cost = $req->input('cost');
@@ -103,7 +104,7 @@ class serviceController extends Controller
             $file = $req->file('haircut_pic');
             $extension = $file->getClientOriginalExtension();
             $filename = time().'.'.$extension;
-            $file->move('uploads/image3s/', $filename);
+            $file->move('uploads/images3/', $filename);
             $Service->haircut_pic = $filename;
         }
         $Service->update();

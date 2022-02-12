@@ -4,7 +4,7 @@
 <div class="pb-20 my-5">
     <div class="text-center">
         <h1 class="text-5xl">
-            Consult Your Fawking Pet
+            Consult Your Pet
         </h1>
     </div>
 <div>

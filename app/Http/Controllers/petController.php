@@ -104,6 +104,7 @@ class petController extends Controller
      */
     public function update(Request $req, $pet_id)
     {
+
         $Pet = Pet::find($pet_id);
         $Pet->pet_name = $req->input('pet_name');
         $Pet->age = $req->input('age');

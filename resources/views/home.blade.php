@@ -11,7 +11,7 @@
     </div>
     <nav>
         <ul class="tracking-widest text-2xl">
-            <button> <a href="{{ URL('/') }}">
+            <button> <a href="{{ URL('dashboard') }}">
                     <h5>Home</h5>
                 </a></button>
             <button> <a href="{{ URL('pet') }}">
@@ -31,9 +31,6 @@
                 </a></button>
         </ul>
     </nav>
-    <button class="text-2xl"><a href="{{ URL('/login') }}">
-        <h5>Log Out</h5>
-    </a></button>
 </header>
 <body style="background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size:cover;">
     @yield('contents')

@@ -16,15 +16,15 @@ use App\Http\Controllers\consultationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    return view('home');
-});
 
-Route::resource('/owner', ownerController::class);
-Route::resource('/pet', petController::class);
-Route::resource('/service', serviceController::class);
-Route::resource('/consultation', consultationController::class);
+Route::resource('/owner', ownerController::class)->middleware('isLoggedIn');
+Route::resource('/pet', petController::class)->middleware('isLoggedIn');
+Route::resource('/service', serviceController::class)->middleware('isLoggedIn');
+Route::resource('/consultation', consultationController::class)->middleware('isLoggedIn');
 
-Route::get('/login', [employeeController::class,'login']);
+Route::get('/login', [employeeController::class,'login'])->middleware('alreadyLoggedIn');
 Route::post('/check', [employeeController::class,'check'])->name('check');
-Route::resource('/employee', employeeController::class);
+Route::get('/dashboard', [employeeController::class,'dashboard'])->middleware('isLoggedIn');
+Route::get('/logout', [employeeController::class,'logout'])->middleware('isLoggedIn');
+Route::resource('/employee', employeeController::class)->middleware('isLoggedIn');
+Route::get('/employee/create', [employeeController::class,'create'])->middleware('alreadyLoggedIn');

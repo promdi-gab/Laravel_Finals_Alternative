@@ -42,7 +42,7 @@
           </td>
       </tr>
             @empty
-                <p>No Owner in the Database</p>
+                <p>No Employee Data in the Database</p>
             @endforelse
         </table>
     </div>

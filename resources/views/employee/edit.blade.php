@@ -9,7 +9,7 @@
     </div>
 <div>
         <div class="flex justify-center pt-4">
-            <form action="/employee/{{ $employees->owner_id }}" method="POST" enctype="multipart/form-data">
+            <form action="/employee/{{ $employees->employee_id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="block">

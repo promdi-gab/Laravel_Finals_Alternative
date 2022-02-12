@@ -12,7 +12,7 @@
     <table class="table-auto">
         <tr class="text-white">
             <th class="w-screen text-3xl">Id</th> 
-            <th class="w-screen text-3xl">Consultation Id</th>
+            <th class="w-screen text-3xl">Pet Id</th>
             <th class="w-screen text-3xl">employee Id</th>
             <th class="w-screen text-3xl">Date of Consultation</th>
             <th class="w-screen text-3xl">Disease & Injuries</th>
@@ -61,7 +61,7 @@
           </td>
       </tr>
             @empty
-                <p>No Consultation in the Database</p>
+                <p>No Consultation Data in the Database</p>
             @endforelse
         </table>
     </div>

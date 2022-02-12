@@ -61,7 +61,7 @@
           </td>
       </tr>
             @empty
-                <p>No Pet in the Database</p>
+                <p>No Pet Data in the Database</p>
             @endforelse
         </table>
     </div>

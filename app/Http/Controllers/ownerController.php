@@ -92,6 +92,7 @@ class ownerController extends Controller
      */
     public function update(Request $req, $owner_id)
     {
+
         $Owner = Owner::find($owner_id);
         $Owner->first_name = $req->input('first_name');
         $Owner->last_name = $req->input('last_name');

@@ -104,6 +104,7 @@ class consultationController extends Controller
      */
     public function update(Request $req, $consultation_id)
     {
+
         $Consultation = Consultation::find($consultation_id);
         $Consultation->employee_id = $req->input('employee_id');
         $Consultation->pet_id = $req->input('pet_id');

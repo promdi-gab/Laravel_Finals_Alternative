@@ -48,7 +48,7 @@
           </td>
       </tr>
             @empty
-                <p>No Owner in the Database</p>
+                <p>No Service Data in the Database</p>
             @endforelse
         </table>
     </div>

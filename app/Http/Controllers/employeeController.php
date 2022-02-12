@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class employeeController extends Controller
 {
@@ -26,7 +27,7 @@ class employeeController extends Controller
        if ($check) {
             if(Hash::check($req->password, $check->password)) {
                 $req->session()->put('id', $check->employee_id);
-                return view('home');
+                return redirect('dashboard');
             } else{
                 return view('employee.login');
             }
@@ -34,6 +35,24 @@ class employeeController extends Controller
             return view('employee.login');
        }
     }
+
+    public function dashboard()
+    {
+       $data = array();
+        if (Session::has('id')){
+          $data = Employee::where('employee_id', Session::get('id'))->first();
+        }
+        return view('employee.dashboard', compact('data'));
+    }
+
+    public function logout()
+    {
+        if (Session::has('id')){
+            Session::pull('id');
+            return redirect('login');
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -118,13 +137,14 @@ class employeeController extends Controller
      */
     public function update(Request $req, $employee_id)
     {
+
         $Employee = Employee::find($employee_id);
         $Employee->full_name = $req->input('full_name');
-        $Employee->email  = $req->input('email ');
-        $Employee->password = $req->input('password');
+        $Employee->email  = $req->input('email');
+        $Employee->password = Hash::make($req->input('password'));
         if($req->hasfile('employee_pic'))
         {
-            $destination = 'uploads/image4/'.$Employee->owner_pic;
+            $destination = 'uploads/image4/'.$Employee->employee_pic;
             if(File::exists($destination))
             {
                 File::delete($destination);

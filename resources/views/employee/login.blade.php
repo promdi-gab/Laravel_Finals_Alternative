@@ -35,7 +35,7 @@
                     <a href="/employee/create" class="bg-green-600 p-2 ml-12 text-white">Sign up Here</a>
 
                     <button type="submit" class="bg-gray-800 text-white block p-2 mt-5 w-full font-bold">
-                        Submit
+                        Log In
                     </button>
                 </div>
             </form>
