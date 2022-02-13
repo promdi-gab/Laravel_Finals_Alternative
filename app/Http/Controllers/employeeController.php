@@ -38,11 +38,11 @@ class employeeController extends Controller
 
     public function dashboard()
     {
-       $data = array();
+       $employee = array();
         if (Session::has('id')){
-          $data = Employee::where('employee_id', Session::get('id'))->first();
+          $employee = Employee::where('employee_id', Session::get('id'))->first();
         }
-        return view('employee.dashboard', compact('data'));
+        return view('employee.dashboard', compact('employee'));
     }
 
     public function logout()

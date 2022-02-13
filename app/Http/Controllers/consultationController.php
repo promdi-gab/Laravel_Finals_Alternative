@@ -11,14 +11,17 @@ class consultationController extends Controller
 {
     public function search()
     {
-
+        $pets = Pet::with('owner')->get();
         $consultations = Consultation::with('employee')->get();
         $consultations = Consultation::with('pet')->get();
         $search = $_GET['search'];
-        $Pet = Pet::where('pet_name', 'LIKE', '%'.$search.'%')->get();
+        $consultations = Consultation::join('pets', 'consultations.pet_id', 'pets.pet_id')
+        ->select('consultations.*', 'pets.pet_id','pets.pet_name',)
+        ->where('pets.pet_name', 'LIKE', '%'.$search.'%')
+        ->get();
         return view('consultation.search',[
             'consultations' => $consultations,
-            'pets' => $Pet
+            'pets' => $pets
         ]);
     }
 

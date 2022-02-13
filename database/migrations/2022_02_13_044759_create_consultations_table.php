@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->increments('consultation_id');
-            $table->unsignedInteger('employee_id');
-            $table->unsignedInteger('pet_id');
-            $table->dateTime('date_of_Consultation');
-            $table->string('disease_Injuries');
-            $table->integer('price');
-            $table->string('comments');
+            $table->unsignedInteger(column: 'employee_id');
+            $table->unsignedInteger(column: 'pet_id');
+            $table->dateTime(column: 'date_of_Consultation');
+            $table->string(column: 'disease_Injuries');
+            $table->integer(column: 'price');
+            $table->string(column: 'comments');
             $table->timestamps();
             $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
             $table->foreign('pet_id')->references('pet_id')->on('pets')->onDelete('cascade');

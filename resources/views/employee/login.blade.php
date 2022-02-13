@@ -7,7 +7,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Log In</title>
 </head>
-<body style="background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size:cover;">
+<body style="background-image:linear-gradient(rgba(212, 212, 212, 0.1),rgba(212,212,212,0.1)), url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size:cover;">
     <div class="pt-48 my-5">
         <div class="text-center">
             <h1 class="text-5xl">

@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->increments('pet_id');
-            $table->string('pet_name');
-            $table->integer('age');
-            $table->string('sex');
-            $table->string('breed');
-            $table->string('pet_pic');
-            $table->unsignedInteger('owner_id');
+            $table->string(column: 'pet_name');
+            $table->integer(column: 'age');
+            $table->string(column: 'sex');
+            $table->string(column: 'breed');
+            $table->string(column: 'pet_pic');
+            $table->unsignedInteger(column: 'owner_id');
             $table->timestamps();
             $table->foreign('owner_id')->references('owner_id')->on('owners')->onDelete('cascade');
         });

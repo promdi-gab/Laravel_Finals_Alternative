@@ -27,5 +27,7 @@ Route::get('/login', [employeeController::class,'login'])->middleware('alreadyLo
 Route::post('/check', [employeeController::class,'check'])->name('check');
 Route::get('/dashboard', [employeeController::class,'dashboard'])->middleware('isLoggedIn');
 Route::get('/logout', [employeeController::class,'logout'])->middleware('isLoggedIn');
-Route::resource('/employee', employeeController::class)->middleware('isLoggedIn');
+Route::resource('/employee', employeeController::class)->middleware('alreadyLoggedIn');
 Route::get('/employee/create', [employeeController::class,'create'])->middleware('alreadyLoggedIn');
+Route::get('/employee/edit', [employeeController::class,'edit'])->middleware('isLoggedIn');
+Route::get('/employee/index', [employeeController::class,'index'])->middleware('isLoggedIn');

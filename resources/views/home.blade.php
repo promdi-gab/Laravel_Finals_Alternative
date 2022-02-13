@@ -32,7 +32,7 @@
         </ul>
     </nav>
 </header>
-<body style="background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size:cover;">
+<body style="background-image:linear-gradient(rgba(212, 212, 212, 0.1),rgba(212,212,212,0.1)), url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size:cover;">
     @yield('contents')
 </body>
 </html>

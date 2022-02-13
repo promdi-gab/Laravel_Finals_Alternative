@@ -2,6 +2,9 @@
 
 @section('contents')
 
+<h1 class="text-center text-5xl pb-8 text-blue-600">This is the Record of your Pet</h1>
+<hr>
+
 <div class="py-3">
     <table class="table-auto">
         <tr class="text-white">
@@ -10,11 +13,8 @@
             <th class="w-screen text-3xl">Disease & Injuries</th>
             <th class="w-screen text-3xl">Price</th>
             <th class="w-screen text-3xl">Comments</th>
-            <th class="w-screen text-3xl">Update</th>
-            <th class="w-screen text-3xl">Delete</th>
         </tr>
-
-  @forelse ($consultations as $consultation)
+@forelse ($consultations as $consultation)
       <tr>
           <td class=" text-center text-3xl">
                 {{ $consultation->employee->full_name }}
@@ -31,25 +31,12 @@
           <td class=" text-center text-3xl">
             {{ $consultation->comments }}
           </td>
-          <td class=" text-center">
-            <a href="consultation/{{ $consultation->consultation_id }}/edit" class="text-center text-3xl bg-green-600 p-2">
-                Update &rarr; 
-               </a>
-          </td>
-          <td class=" text-center">
-            <form action="/consultation/{{ $consultation->consultation_id }}" method="POST">
-                @csrf
-                @method('delete')
-                <button type="submit" class="text-center text-3xl bg-red-600 p-2">
-                    Delete &rarr;
-                </button>
-           </form>
-          </td>
-      </tr>
             @empty
                 <p>No Consultation Data in the Database</p>
             @endforelse
         </table>
     </div>
 </div>
+    <hr>
+        <h1 class="text-center text-5xl pb-8 text-green-700">Thank you for Choosing ACME Pet Clinic</h1>   
 @endsection
