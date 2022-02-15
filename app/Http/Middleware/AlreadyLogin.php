@@ -16,7 +16,8 @@ class AlreadyLogin
      */
     public function handle(Request $req, Closure $next)
     {
-        if(Session()->has('id') && (url('login')==$req->url() || url('employee/create')==$req->url())){
+        if(Session()->has('id') && (url('login')==$req->url() || url('employee/create')==$req->url())
+        ){
             return back();
         }
         return $next($req);
