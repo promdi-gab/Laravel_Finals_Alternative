@@ -15,7 +15,7 @@ class consultationController extends Controller
         $consultations = Consultation::with('employee')->get();
         $consultations = Consultation::with('pet')->get();
         $search = $_GET['search'];
-        $consultations = Consultation::join('pets', 'consultations.pet_id', 'pets.pet_id')
+        $consultations = Consultation::join('pets', 'consultations.pet_id', '=', 'pets.pet_id')
         ->select('consultations.*', 'pets.pet_id','pets.pet_name',)
         ->where('pets.pet_name', 'LIKE', '%'.$search.'%')
         ->get();
